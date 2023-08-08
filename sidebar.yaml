@@ -33,7 +33,7 @@
           {% elif time <= 19 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
           {% elif time <= 22 %} Good night {{'\U0001F60C'}}
           {% elif time <= 23 %} Good night {{'\U0001F974'}}
-          {% else %} God kväll {{'\U0001F974'}}
+          {% else %} Good Evening {{'\U0001F974'}}
           {% endif %}
           </b>
         active: >
