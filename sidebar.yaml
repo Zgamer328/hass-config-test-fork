@@ -77,6 +77,7 @@
             <font color='#6a7377'>Everything is off</font>
           {% endif %}
           </b>
+        ### You may see some errors here in HA, Edit this information as necessary,
 weather: >
   {% set entity = 'weather.smhi_home' %}
   {% if not is_state(entity, 'unknown') %}
