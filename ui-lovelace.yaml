@@ -89,8 +89,8 @@ views:
         cards:
 
           - type: custom:button-card
-            entity: light.vardagsrum_group
-            name: Belysning
+            entity: light.rgbcw_lightbulb
+            name: Room Lights
             template:
               - light
               - icon_hue
@@ -103,15 +103,15 @@ views:
               - icon_shade
 
           - type: custom:button-card
-            entity: media_player.sony_bravia_tv
+            entity: media_player.samsung_tv
             name: Tv
             state_display: >
               [[[
                 if (variables.state === 'playing') {
-                    return 'På';
+                    return 'On';
                 }
                 if (variables.state === true) {
-                    return variables.translate_unknown;
+                    return 'unknown';
                 }
               ]]]
             double_tap_action:
