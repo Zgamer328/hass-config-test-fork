@@ -87,6 +87,7 @@ weather: >
   {% else %}
     Can't read weather...
   {% endif %}
+### This Battery section will probably be removed at a later point
         battery: >
           {% set entities = states.sensor 
             | selectattr('entity_id', 'search', 'battery')
