@@ -11,9 +11,9 @@
         date: >
           <font color='#6a7377'><b>
           {% if strptime(states('sensor.date'), '%Y-%m-%d').day != None %}
-          {% set days = ['Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag', 'Söndag'] %}
-          {% set months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni',
-          'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'] %}
+          {% set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %}
+          {% set months = ['January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December'] %}
             {{ days[now().weekday()] }}<br>
             {{ strptime(states('sensor.date'), '%Y-%m-%d').day }} {{ months[now().month-1] }}
           {% endif %}
@@ -21,18 +21,18 @@
         greet: >
           <b>
           {% set time = now().hour %}
-          {% if time <= 1 %} God natt {{'\U0001F611'}}
-          {% elif time <= 3 %} God natt {{'\U0001F62A'}}
-          {% elif time <= 5 %} God natt {{'\U0001F634'}}
-          {% elif time <= 7 %} God morgon {{'\U0001F4A9'}}
-          {% elif time <= 9 %} God morgon {{'\u2615\uFE0F'}}
-          {% elif time <= 10 %} God morgon {{'\U0001F642'}}
-          {% elif time <= 13 %} God dag {{'\U0001F60A'}}
-          {% elif time <= 15 %} God dag {{'\U0001F60E'}}
-          {% elif time <= 17 %} God dag {{'\U0001F44B\U0001F3FB'}}
-          {% elif time <= 19 %} God kväll {{'\U0001F44B\U0001F3FB'}}
-          {% elif time <= 22 %} God kväll {{'\U0001F60C'}}
-          {% elif time <= 23 %} God kväll {{'\U0001F974'}}
+          {% if time <= 1 %} Good night, It is late now {{'\U0001F611'}}
+          {% elif time <= 3 %} Good night, It is late now {{'\U0001F62A'}}
+          {% elif time <= 5 %} Good Morning {{'\U0001F634'}}
+          {% elif time <= 7 %} Good Morning {{'\U0001F4A9'}}
+          {% elif time <= 9 %} Good Morning {{'\u2615\uFE0F'}}
+          {% elif time <= 10 %} Good Morning {{'\U0001F642'}}
+          {% elif time <= 13 %} Good Afternoon {{'\U0001F60A'}}
+          {% elif time <= 15 %} Good Afternoon {{'\U0001F60E'}}
+          {% elif time <= 17 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
+          {% elif time <= 19 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
+          {% elif time <= 22 %} Good night {{'\U0001F60C'}}
+          {% elif time <= 23 %} Good night {{'\U0001F974'}}
           {% else %} God kväll {{'\U0001F974'}}
           {% endif %}
           </b>
