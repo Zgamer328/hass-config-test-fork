@@ -38,8 +38,8 @@ browser_mod:
           show_state: false
           entities:
 
-            - entity: device_tracker.oneplus_9_pro
-              name: Router
+            - entity: sensor.oneplus_9_pro_wifi_connection_2
+              name: Internet
               icon: mdi:wifi
               card_mod:
                 style: &state |
@@ -47,13 +47,13 @@ browser_mod:
                     color: {{ is_state(config.entity, 'home') | iif('#3182b7', '#3c3f3f') }};
                   }
 
-            - entity: device_tracker.oneplus_9_pro
+            - entity: binary_sensor.oneplus_9_pro_bluetooth_state_2
               name: Bluetooth
               icon: mdi:bluetooth
               card_mod:
                 style: *state
 
-            - entity: device_tracker.oneplus_9_pro
+            - entity: sensor.oneplus_9_pro_geocoded_location
               name: Position
               icon: cil:iphone-modern
               card_mod:
