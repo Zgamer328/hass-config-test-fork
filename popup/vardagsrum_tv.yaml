@@ -19,7 +19,7 @@ browser_mod:
           entities:
 
             - entity: media_player.samsung_tv
-              name: Sony Bravia
+              name: Samsung Smart TV
               secondary_info: last-changed
 
             - entity: automation.tv_on_lights
