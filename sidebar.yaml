@@ -77,25 +77,3 @@
             <font color='#6a7377'>Everything is off</font>
           {% endif %}
           </b>
-        ### You may see some errors here in HA, Edit this information as necessary,
-weather: >
-  {% set entity = 'weather.smhi_home' %}
-  {% if not is_state(entity, 'unknown') %}
-    {% set temp = state_attr(entity, 'temperature') | round %}
-    {% set precip = state_attr(entity, 'forecast')[0]['precipitation'] | round %}
-      Feels like {{ temp }}° with {{ 'no risk of rain' if precip == 0
-      else precip | string + 'mm rain 🌧' }}
-  {% else %}
-    Can't read weather...
-  {% endif %}
-### This Battery section will probably be removed at a later point
-        battery: >
-          {% set entities = states.sensor 
-            | selectattr('entity_id', 'search', 'battery')
-            | rejectattr('entity_id', 'search', 'iphone')
-            | map(attribute = 'entity_id') | list %}
-          {% for sensor in entities if states(sensor) != 'unknown' and states(sensor) !=
-          'unavailable' and states(sensor) != 'None' and states(sensor) | int(default=0) <= 5 %}
-            {% if loop.first %} {{'\u26A0\uFE0F'}} Battery {% else %}, {% endif %}
-            {{ state_attr(sensor, 'friendly_name') }} {{ states(sensor) }}%
-          {% endfor %}
