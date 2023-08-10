@@ -82,7 +82,7 @@ views:
       #################################################
 
       - type: grid
-        title: Vardagsrum
+        title: Bedrtoom
         view_layout:
           grid-area: vardagsrum
         columns: 2
