@@ -430,20 +430,20 @@ views:
 
       #################################################
       #                                               #
-      #                     HEMMA                     #
+      #                     HEMMA//HOME               #
       #                                               #
       #################################################
 
       - type: grid
-        title: Hemma
+        title: Home
         view_layout:
           grid-area: hemma
         columns: 2
         cards:
 
           - type: custom:button-card
-            entity: person.matte
-            name: Mattias
+            entity: person.z
+            name: Z
             triggers_update:
               - sensor.matte_last_changed
             double_tap_action:
@@ -455,28 +455,22 @@ views:
               - circle
 
           - type: custom:button-card
-            entity: person.sanja
-            name: Sanja
-            triggers_update:
-              - sensor.sanja_last_changed
-            double_tap_action:
-              !include popup/hemma_sanja.yaml
-            variables:
-              retain: sensor.sanja_last_changed
+            entity: script.hm_config
+            name: Media Config
             template:
-              - person
-              - circle
+              - base
+              - icon_home
 
           - type: custom:button-card
-            entity: script.home_leave
-            name: Stäng allt
+            entity: script.all_off
+            name: Turn All Off
             template:
               - base
               - icon_away
 
           - type: custom:button-card
             entity: script.home_arrive
-            name: Hemma
+            name: Home
             template:
               - base
               - icon_home
