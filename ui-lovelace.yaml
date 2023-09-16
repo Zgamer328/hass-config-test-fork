@@ -82,7 +82,7 @@ views:
       #################################################
 
       - type: grid
-        title: Bedrtoom
+        title: Bedroom
         view_layout:
           grid-area: vardagsrum
         columns: 2
@@ -96,39 +96,42 @@ views:
               - icon_hue
 
           - type: custom:button-card
-            entity: light.vardagsrum_horna
-            name: Hörnlampa
+            entity: switch.heater
+            name: Heater
+            double_tap_action:
+              !include popup/heater.yaml
             template:
-              - light
-              - icon_shade
+              - base
+              - icon_fan2
+              - loader
 
           - type: custom:button-card
             entity: media_player.samsung_tv
-            name: Tv
+            name: TV
             state_display: >
               [[[
                 if (variables.state === 'playing') {
-                    return 'On';
+                    return 'På';
                 }
                 if (variables.state === true) {
-                    return 'unknown';
+                    return variables.translate_unknown;
                 }
               ]]]
             double_tap_action:
-              !include popup/vardagsrum_tv.yaml
+              !include popup/bedroom_tv.yaml
             template:
               - base
               - icon_tv
               - loader
 
           - type: custom:button-card
-            entity: switch.deltaco_sh_p01_socket
-            name: Balkong
+            entity: switch.room_fan
+            name: "Fan"
             double_tap_action:
-              !include popup/vardagsrum_balkong.yaml
+              !include popup/studio_flakt.yaml
             template:
               - base
-              - icon_hue
+              - icon_fan2
               - loader
 
       #################################################
@@ -145,11 +148,11 @@ views:
         cards:
 
           - type: custom:button-card
-            entity: light.studio_dator
-            name: Datorlampa
+            entity: switch.office_light
+            name: Lamp
             template:
-              - light
-              - icon_hue
+              - base
+              - icon_shade
 
           - type: custom:button-card
             entity: light.studio_group
@@ -414,6 +417,7 @@ views:
               - icon_fan2
               - loader
 
+
           - type: custom:button-card
             entity: light.garderob_lampa
             name: Garderob
@@ -430,7 +434,7 @@ views:
 
       #################################################
       #                                               #
-      #                     HEMMA//HOME               #
+      #                     HEMMA                     #
       #                                               #
       #################################################
 
