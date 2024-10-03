@@ -5,7 +5,7 @@ base:
     - extra_styles
   variables:
     state_on: >
-      [[[ return ['on', 'home', 'cool', 'fan_only', 'playing', 'unlocked'].indexOf(!entity || entity.state) !== -1; ]]]
+      [[[ return ['on', 'home', 'cool', 'fan_only', 'playing', 'unlocked', 'heat', 'heat_cool', 'Disarmed'].indexOf(!entity || entity.state) !== -1; ]]]
     state: >
       [[[ return !entity || entity.state; ]]]
     entity_id: >
@@ -30,13 +30,17 @@ base:
   state_display: >
     [[[
       const stateDict = {
-        'on': variables.translate_on,
-        'off': variables.translate_off,
-        'cool': variables.translate_cool,
-        'fan_only': variables.translate_fan_only,
-      };
-      if (variables.state === true) return variables.translate_unknown;
-      return stateDict[variables.state];
+      'on': 'On',
+      'off': 'Off',
+      'cool': 'Cool',
+      'fan_only': 'Fan Only',
+      'heat_cool':  'Heat/Cool',
+      'heat': 'Heat',
+      'disarmed': 'Disarmed',
+      'armed_home': 'Armed Home',
+    };
+      if (variables.state === true) return 'unknown';
+      return variables.state;
     ]]]
   tap_action:
     ui_sound_tablet: |
